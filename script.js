@@ -55,32 +55,67 @@ function addDec(a, b) {
   return a + b;
 }
 
-// the below 2 functions will throw an error 
+// the below 2 functions will throw an error
 const addExp = function (a, b) {
   return a + b;
 };
 
 var addArrow = (a, b) => a + b;
 
-// ============================= 
-if (!numProducts) deleteShoppingCart()
+// =============================
+if (!numProducts) deleteShoppingCart();
 
 var numProducts = 10;
 
 function deleteShoppingCart() {
-  console.log("All products deleted");
+  console.log('All products deleted');
 }
 
-var x = 2
-let y = 2
-const z = 7
+var x = 2;
+let y = 2;
+const z = 7;
 
-// ====== the this keyword 
+// ====== the this keyword
 const alex = {
-  names: "msumba",
+  names: 'msumba',
   year: 1983,
   calcAge: function () {
-    return  2023 - this.year
-  }
-}
+    return 2023 - this.year;
+  },
+};
 console.log(alex.calcAge());
+
+// ====== THE THIS KEYWORD IN PRACTICE
+// console.log(this);
+
+const calcAge2 = function (birthYear) {
+  console.log(2023 - birthYear);
+  // console.log(this);
+};
+calcAge2(1983);
+
+const calcAgeArrow = birthYear => {
+  console.log(2023 - birthYear);
+  // console.log(this);
+};
+calcAgeArrow(1980);
+
+const alexander = {
+  year: 1983,
+  calcAge2: function () {
+    console.log(this);
+    console.log(2023 - this.year);
+  },
+};
+alexander.calcAge2();
+
+const irene = {
+  year: 2012,
+}
+
+irene.calcAge2 = alexander.calcAge2;
+irene.calcAge2();
+
+const f = alexander.calcAge2
+
+f()
